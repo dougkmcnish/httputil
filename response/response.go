@@ -43,5 +43,6 @@ func (r *Body) Fatal(message string) {
 //sends the response back to the client.
 //It takes a http.ResponseWriter and a HTTP status code as arguments.
 func (r *Body) Json() (string, error) {
-	return json.Marshal(r)
+	json, err := json.Marshal(r)
+	return string(json), err
 }
