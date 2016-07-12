@@ -1,6 +1,9 @@
 package response
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"log"
+)
 
 //ResponseBody is a simple struct suitable for
 //use as a response to a HTTP request.
@@ -27,6 +30,7 @@ func (r *Body) Append(message string) {
 //is up to the client implementation.
 func (r *Body) Error(message string) {
 	r.Errors++
+	log.Printf(message)
 	r.Append(message)
 }
 
